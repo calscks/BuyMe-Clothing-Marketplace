@@ -2,13 +2,16 @@
 //
 
 #include "stdafx.h"
+#include "Menu.h"
+#include <Windows.h>
 
 using std::cout;
 using std::endl;
 
 int main()
 {
-	cout << "hello world" << endl;
+	SetConsoleTitle(_T("BuyMe Clothing Marketplace"));
+	
     return 0;
 }
 
