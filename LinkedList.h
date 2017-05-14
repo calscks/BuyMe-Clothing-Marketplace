@@ -16,7 +16,10 @@ public:
 	void traversePrint() const;
 	void traverseRevPrint() const;
 	void singlePrint() const;
+	int getSize();
 	void destroy(T data);
 };
+
+
 
 #endif

@@ -8,10 +8,12 @@
 using std::cout;
 using std::endl;
 
+
 int main()
 {
 	SetConsoleTitle(_T("BuyMe Clothing Marketplace"));
-	
     return 0;
 }
+
+
 
