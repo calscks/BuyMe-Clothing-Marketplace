@@ -6,6 +6,7 @@ std::string outOfBounds = "Selection out of bounds!";
 
 MainMenu::MainMenu()
 {
+	system("cls");
 	selectionText << "Welcome to BuyMe Clothing Marketplace! Please select your choices below.\n\n" <<
 		"1. Order Placement\n" <<
 		"2. Order Modification and Viewing\n" <<
@@ -18,11 +19,9 @@ Menu* MainMenu::getNextMenu(int& choice)
 	switch (choice)
 	{
 	case 1:
-		system("cls");
 		nextMenu = new OrderPlacementMenu();
 		break;
 	case 2:
-		system("cls");
 		nextMenu = new OrderModMenu();
 		break;
 	case 3:
@@ -36,6 +35,7 @@ Menu* MainMenu::getNextMenu(int& choice)
 
 OrderPlacementMenu::OrderPlacementMenu()
 {
+	system("cls");
 	selectionText << "Order Placement Menu\n\n" <<
 		"1. View Clothes\n" <<
 		"2. Search Clothes\n" <<
@@ -52,15 +52,12 @@ Menu* OrderPlacementMenu::getNextMenu(int& choice)
 	switch (choice)
 	{
 	case 1:
-		system("cls");
 		nextMenu = new ViewClothesMenu();
 		break;
 	case 2:
-		system("cls");
 		nextMenu = new SearchClothesMenu();
 		break;
 	case 6:
-		system("cls");
 		nextMenu = new MainMenu();
 		break;
 	default:
@@ -87,6 +84,7 @@ void OrderPlacementMenu::switches(int& choice)
 
 OrderModMenu::OrderModMenu()
 {
+	system("cls");
 	selectionText << "Order Modification Menu\n\n" <<
 		"1. View Orders\n" <<
 		"2. Modify Orders\n" <<
@@ -126,6 +124,7 @@ void OrderModMenu::switches(int& choice)
 
 ViewClothesMenu::ViewClothesMenu()
 {
+	system("cls");
 	selectionText << "View Clothes Menu\n\n" <<
 		"1. View all clothes" <<
 		"2. View all jeans" <<
@@ -136,3 +135,96 @@ ViewClothesMenu::ViewClothesMenu()
 		"7. Move forward and backwards from..." <<
 		"8. Back";
 }
+
+Menu* ViewClothesMenu::getNextMenu(int& choice)
+{
+	Menu *nextMenu = nullptr;
+	switch (choice)
+	{
+	case 8:
+		nextMenu = new OrderPlacementMenu();
+		break;
+	default:
+		switches(choice);
+	}
+}
+
+void ViewClothesMenu::switches(int& choice)
+{
+	switch (choice)
+	{
+	case 1:
+		//
+	case 2:
+		//
+	case 3:
+		//
+	case 4:
+		//
+	case 5:
+		//
+	case 6:
+		//
+	case 7:
+		//
+	default:
+		std::cout << outOfBounds << std::endl;
+	}
+}
+
+SearchClothesMenu::SearchClothesMenu()
+{
+	system("cls");
+	selectionText << "Search Clothes Menu\n\n" <<
+		"1. Search for clothes ID\n" <<
+		"2. Search for type\n" <<
+		"3. Search for description\n" <<
+		"4. Search for quantity\n" <<
+		"5. Search for price\n" <<
+		"6. Back\n";
+}
+
+Menu* SearchClothesMenu::getNextMenu(int& choice)
+{
+	Menu* nextMenu = nullptr;
+	switch (choice)
+	{
+	case 6:
+		nextMenu = new OrderPlacementMenu();
+		break;
+	default:
+		switches(choice);
+	}
+
+	return nextMenu;
+}
+
+void SearchClothesMenu::switches(int& choice)
+{
+	switch (choice)
+	{
+	case 1:
+		//
+	case 2:
+		//
+	case 3:
+		//
+	case 4:
+		//
+	case 5:
+		//
+	default:
+		std::cout << outOfBounds << std::endl;
+	}
+}
+
+SelectClothesMenu::SelectClothesMenu()
+{
+	system("cls");
+	selectionText << "Clothes Selection Menu";
+}
+
+
+
+
+

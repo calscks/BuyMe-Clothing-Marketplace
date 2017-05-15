@@ -5,7 +5,7 @@ class Menu
 public:
 	Menu(){};
 	virtual ~Menu(){};
-	virtual Menu *getNextMenu(int& choice){};
+	virtual Menu *getNextMenu(int& choice){return nullptr;};
 	virtual void printSelectionText()
 	{
 		std::cout << selectionText.str();
