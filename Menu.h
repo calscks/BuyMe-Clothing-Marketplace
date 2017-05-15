@@ -35,6 +35,7 @@ class OrderModMenu : public Menu
 public:
 	OrderModMenu();
 	Menu *getNextMenu(int& choice) override;
+	void switches(int& choice) override;
 };
 
 class ViewClothesMenu : public Menu
@@ -42,6 +43,7 @@ class ViewClothesMenu : public Menu
 public:
 	ViewClothesMenu();
 	Menu *getNextMenu(int& choice) override;
+	void switches(int& choice) override;
 
 };
 
@@ -49,16 +51,22 @@ class SearchClothesMenu : public Menu
 {
 public:
 	SearchClothesMenu();
+	Menu *getNextMenu(int& choice) override;
+	void switches(int& choice) override;
 };
 
 class SelectClothesMenu : public Menu
 {
 public:
 	SelectClothesMenu();
+	Menu *getNextMenu(int& choice) override;
+	void switches(int& choice) override;
 };
 
 class ViewOrderMenu : public Menu
 {
 public:
 	ViewOrderMenu();
+	Menu *getNextMenu(int& choice) override;
+	void switches(int& choice) override;
 };
