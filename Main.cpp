@@ -14,6 +14,3 @@ int main()
 	SetConsoleTitle(_T("BuyMe Clothing Marketplace"));
     return 0;
 }
-
-
-

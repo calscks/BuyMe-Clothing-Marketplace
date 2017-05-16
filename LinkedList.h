@@ -10,14 +10,15 @@ class LinkedList
 public:
 	LinkedList();
 	~LinkedList();
-	void appendFront(T data);
-	void append(T data);
-	void appendPosition(T data);
+	void appendFront(T& data);
+	void append(T& data);
+	void appendPosition(T& data);
 	void traversePrint() const;
 	void traverseRevPrint() const;
 	void singlePrint() const;
 	int getSize();
-	void destroy(T data);
+	T getData(int& position);
+	void destroy(T& data);
 };
 
 

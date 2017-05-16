@@ -1,5 +1,6 @@
 ﻿#pragma once
-
+#ifndef MENU_H
+#define MENU_H
 class Menu
 {
 public:
@@ -55,14 +56,6 @@ public:
 	void switches(int& choice) override;
 };
 
-class SelectClothesMenu : public Menu
-{
-public:
-	SelectClothesMenu();
-	Menu *getNextMenu(int& choice) override;
-	void switches(int& choice) override;
-};
-
 class ViewOrderMenu : public Menu
 {
 public:
@@ -70,3 +63,4 @@ public:
 	Menu *getNextMenu(int& choice) override;
 	void switches(int& choice) override;
 };
+#endif

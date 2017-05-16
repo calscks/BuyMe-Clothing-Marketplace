@@ -107,6 +107,7 @@ Menu* OrderModMenu::getNextMenu(int& choice)
 		switches(choice);
 		break;
 	}
+	return nextMenu;
 }
 
 void OrderModMenu::switches(int& choice)
@@ -119,6 +120,7 @@ void OrderModMenu::switches(int& choice)
 		//TODO: Select and delete orders
 	default:
 		std::cout << outOfBounds << std::endl;
+		break;
 	}
 }
 
@@ -132,7 +134,7 @@ ViewClothesMenu::ViewClothesMenu()
 		"4. View all shorts" <<
 		"5. View all skirt" <<
 		"6. View all slacks" <<
-		"7. Move forward and backwards from..." <<
+		"7. Move forward and backwards from position..." <<
 		"8. Back";
 }
 
@@ -146,7 +148,9 @@ Menu* ViewClothesMenu::getNextMenu(int& choice)
 		break;
 	default:
 		switches(choice);
+		break;
 	}
+	return nextMenu;
 }
 
 void ViewClothesMenu::switches(int& choice)
@@ -169,6 +173,7 @@ void ViewClothesMenu::switches(int& choice)
 		//
 	default:
 		std::cout << outOfBounds << std::endl;
+		break;
 	}
 }
 
@@ -194,6 +199,7 @@ Menu* SearchClothesMenu::getNextMenu(int& choice)
 		break;
 	default:
 		switches(choice);
+		break;
 	}
 
 	return nextMenu;
@@ -215,16 +221,47 @@ void SearchClothesMenu::switches(int& choice)
 		//
 	default:
 		std::cout << outOfBounds << std::endl;
+		break;
 	}
 }
 
-SelectClothesMenu::SelectClothesMenu()
+ViewOrderMenu::ViewOrderMenu()
 {
 	system("cls");
-	selectionText << "Clothes Selection Menu";
+	selectionText << "View Order Menu\n\n" <<
+		"1. View all orders\n" <<
+		"2. Select order from ID\n" <<
+		"3. Select order from position\n and move forward/backward\n" <<
+		"4. Back\n";
 }
 
+Menu* ViewOrderMenu::getNextMenu(int& choice)
+{
+	Menu *nextMenu = nullptr;
+	switch (choice)
+	{
+	case 4:
+		nextMenu = new OrderModMenu();
+		break;
+	default:
+		switches(choice);
+		break;
+	}
+	return nextMenu;
+}
 
-
-
-
+void ViewOrderMenu::switches(int& choice)
+{
+	switch (choice)
+	{
+	case 1:
+		//
+	case 2:
+		//
+	case 3:
+		//
+	default:
+		std::cout << outOfBounds << std::endl;
+		break;
+	}
+}
