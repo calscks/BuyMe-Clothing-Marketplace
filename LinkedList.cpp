@@ -2,7 +2,7 @@
 #include "LinkedList.h"
 
 template <class T>
-LinkedList<T>::LinkedList()
+LinkedList<T>::LinkedList() : head(nullptr), tail(nullptr)
 {
 	
 }

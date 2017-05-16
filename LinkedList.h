@@ -6,7 +6,7 @@
 template <class T>
 class LinkedList
 {
-	Node<T> *head, *tail, *temp, *cur, *back;
+	Node<T> *head, *tail, *temp, *cur;
 public:
 	LinkedList();
 	~LinkedList();
@@ -20,7 +20,5 @@ public:
 	T getData(int& position);
 	void destroy(T& data);
 };
-
-
 
 #endif
