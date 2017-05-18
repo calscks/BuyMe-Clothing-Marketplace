@@ -9,6 +9,7 @@ class LinkedList
 	Node<T> *head, *tail, *temp, *cur;
 public:
 	LinkedList();
+	LinkedList(const LinkedList<T>&);
 	~LinkedList();
 	void appendFront(T& data);
 	void append(T& data);
