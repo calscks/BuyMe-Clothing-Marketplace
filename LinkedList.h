@@ -11,15 +11,15 @@ public:
 	LinkedList();
 	LinkedList(const LinkedList<T>&);
 	~LinkedList();
-	void appendFront(T& data);
-	void append(T& data);
-	void appendPosition(T& data);
+	void appendFront(T data);
+	void append(T data);
+	void appendPosition(T data);
 	void traversePrint() const;
 	void traverseRevPrint() const;
 	void singlePrint() const;
 	int getSize();
 	T getData(int& position);
-	void destroy(T& data);
+	void destroy(T data);
 };
 
 #endif
