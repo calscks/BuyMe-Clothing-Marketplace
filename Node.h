@@ -7,6 +7,7 @@ class Node
 {
 public:
 	T data;
+	Node<T>();
 	Node<T> *next, *prev;
 };
 

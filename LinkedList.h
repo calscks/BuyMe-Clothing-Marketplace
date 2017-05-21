@@ -13,10 +13,11 @@ public:
 	~LinkedList();
 	void appendFront(T data);
 	void append(T data);
-	void appendPosition(T data);
+	void appendPosition(T data, int& position);
 	void traversePrint() const;
 	void traverseRevPrint() const;
 	void singlePrint() const;
+
 	int getSize();
 	T getData(int& position);
 	void destroy(T data);
