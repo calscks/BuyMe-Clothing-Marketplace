@@ -2,4 +2,4 @@
 #include "Node.h"
 
 template <class T>
-Node<T>::Node() : next(nullptr), prev(nullptr) {};
+Node<T>::Node<T>() : next(nullptr), prev(nullptr) {};

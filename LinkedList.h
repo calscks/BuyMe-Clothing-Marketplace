@@ -17,7 +17,6 @@ public:
 	void traversePrint() const;
 	void traverseRevPrint() const;
 	void singlePrint() const;
-
 	int getSize();
 	T getData(int& position);
 	void destroy(T data);

@@ -30,6 +30,7 @@ LinkedList<T>::~LinkedList()
 		delete cur;
 		cur = head;
 	}
+	delete head;
 	delete tail;
 }
 
@@ -68,17 +69,34 @@ template <class T>
 void LinkedList<T>::appendPosition(T data, int& position)
 {
 	auto count = 1;
-	cur = temp = new Node<T>;
+	cur = new Node<T>;
 	cur->data = data;
+
 	if (head == nullptr)
 	{
-		head = cur;
-		tail = cur;
+		append(data);
 		std::cout << "The list is empty. Creating a new list with this data." << std::endl;
+		return;
 	}
+
+	Node<T>* back = new Node<T>;
+	temp = new Node<T>;
 	temp = head;
-	while (temp->next != nullptr && count != position)
+	
+	if (position > count || position < 1)
 	{
-		
+		std::cout << "Position out of bound." << std::endl;
+	} else if (position == 1)
+	{
+		appendFront(data);
+	} else
+	{
+		while (temp->next != nullptr && count != position)
+		{
+			back = temp;
+			temp = temp->next;
+			count++;
+		}
 	}
+
 }
