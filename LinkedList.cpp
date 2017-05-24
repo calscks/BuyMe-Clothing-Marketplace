@@ -124,6 +124,7 @@ int LinkedList<T>::getSize()
 template <class T>
 void LinkedList<T>::traversePrint(callback callback) const
 {
+	LinkedList<T> printList = new LinkedList<T>(*this);
 
 }
 

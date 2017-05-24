@@ -10,7 +10,7 @@ public:
 	LinkedList();
 	LinkedList(const LinkedList<T>&); //copy constructor
 	~LinkedList(); //user-defined destr to free dynamically allocated memories
-	typedef std::function<LinkedList<T>()> callback; //should be taking LL as return type, takes no arg (hopefully)
+	typedef std::function<void(LinkedList<T>)> callback; //should be taking void as return type, takes LL as arg (hopefully)
 	void appendFront(T data);
 	void append(T data);
 	void appendPosition(T data, int& position);
