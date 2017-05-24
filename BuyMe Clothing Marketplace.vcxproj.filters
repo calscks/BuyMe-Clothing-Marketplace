@@ -30,9 +30,6 @@
     <ClInclude Include="LinkedList.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>Source Files\Node</Filter>
-    </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -49,9 +46,6 @@
     </ClCompile>
     <ClCompile Include="LinkedList.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>Source Files\Node</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files</Filter>

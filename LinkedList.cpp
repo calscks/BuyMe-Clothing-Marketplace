@@ -4,7 +4,7 @@
 template <class T>
 LinkedList<T>::LinkedList() : head(nullptr), tail(nullptr)
 {
-	cur = new Node<T>;
+	cur = new Node;
 	cur->prev = cur->next = nullptr;
 }
 
@@ -14,7 +14,7 @@ LinkedList<T>::LinkedList(const LinkedList<T>& copyList) : head(nullptr), tail(n
 	//deep copying the whole linked list
 	if (copyList.head == nullptr)
 		return;
-	for (Node<T>* node = copyList.head; node != nullptr; node = node->next)
+	for (Node* node = copyList.head; node != nullptr; node = node->next)
 	{
 		this->append(node->data);
 	}
@@ -37,7 +37,7 @@ LinkedList<T>::~LinkedList()
 template <class T>
 void LinkedList<T>::append(T data)
 {
-	cur = new Node<T>;
+	cur = new Node;
 	cur->data = data;
 	if (head == nullptr)
 		head = cur;
@@ -52,7 +52,7 @@ void LinkedList<T>::append(T data)
 template <class T>
 void LinkedList<T>::appendFront(T data)
 {
-	cur = new Node<T>;
+	cur = new Node;
 	cur->data = data;
 	if (head == nullptr)
 		head = cur; //can be shortened but I lazy
@@ -69,7 +69,7 @@ template <class T>
 void LinkedList<T>::appendPosition(T data, int& position)
 {
 	auto count = 1;
-	cur = new Node<T>;
+	cur = new Node;
 	cur->data = data;
 
 	if (head == nullptr)
@@ -79,24 +79,51 @@ void LinkedList<T>::appendPosition(T data, int& position)
 		return;
 	}
 
-	Node<T>* back = new Node<T>;
-	temp = new Node<T>;
-	temp = head;
+	temp = new Node;
 	
 	if (position > count || position < 1)
 	{
 		std::cout << "Position out of bound." << std::endl;
-	} else if (position == 1)
+	} 
+	else if (position == 1)
 	{
 		appendFront(data);
-	} else
+	} 
+	else if (position < this->getSize())
 	{
+		temp = head;
 		while (temp->next != nullptr && count != position)
 		{
-			back = temp;
 			temp = temp->next;
 			count++;
 		}
+		cur->next = temp;
+		cur->prev = temp->prev;
+		temp->prev->next = cur;
+		temp->prev = cur;
 	}
+	else
+	{
+		append(data);
+	}
+}
+
+template <class T>
+int LinkedList<T>::getSize()
+{
+	auto count = 0;
+	temp = head;
+	while (temp != nullptr)
+	{
+		++count;
+		temp = temp->next;
+	}
+	return count;
+}
+
+template <class T>
+void LinkedList<T>::traversePrint(callback callback) const
+{
 
 }
+
