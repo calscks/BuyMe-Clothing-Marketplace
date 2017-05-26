@@ -1,5 +1,7 @@
 ﻿#include "stdafx.h"
 #include "Menu.h"
+#include "LinkedList.h"
+#include "Clothes.h"
 
 //i dunno what im doing but it works! oop ftw
 std::string outOfBounds = "Selection out of bounds!";

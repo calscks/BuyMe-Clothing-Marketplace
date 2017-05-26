@@ -23,15 +23,12 @@ LinkedList<T>::LinkedList(const LinkedList<T>& copyList) : head(nullptr), tail(n
 template <class T>
 LinkedList<T>::~LinkedList()
 {
-	cur = head;
-	while (cur != nullptr)
+	while (head != nullptr)
 	{
-		head = head->next;
-		delete cur;
 		cur = head;
+		head = cur->next;
+		delete cur;
 	}
-	delete head;
-	delete tail;
 }
 
 template <class T>
@@ -121,10 +118,13 @@ int LinkedList<T>::getSize()
 	return count;
 }
 
+//call using lambda expression. gotta try
+//[](LinkedList<T> aList){}
 template <class T>
 void LinkedList<T>::traversePrint(callback callback) const
 {
-	LinkedList<T> printList = new LinkedList<T>(*this);
-
+	LinkedList<T>* printList = new LinkedList<T>(*this);
+	callback(printList);
+	delete printList; //no idea if this works
 }
 

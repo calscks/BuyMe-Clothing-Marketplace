@@ -1,6 +1,9 @@
 ﻿#pragma once
 #ifndef MENU_H
 #define MENU_H
+
+//polymorphismic classes, treating each menu as object
+//Base class Menu, derived classes MainMenu...etc
 class Menu
 {
 public:
