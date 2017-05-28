@@ -8,10 +8,10 @@ LinkedList<T>::LinkedList() : head(nullptr), tail(nullptr)
 	cur->prev = cur->next = nullptr;
 }
 
+//deep copying whole linked list
 template <class T>
 LinkedList<T>::LinkedList(const LinkedList<T>& copyList) : head(nullptr), tail(nullptr)
 {
-	//deep copying the whole linked list
 	if (copyList.head == nullptr)
 		return;
 	for (Node* node = copyList.head; node != nullptr; node = node->next)
@@ -20,6 +20,29 @@ LinkedList<T>::LinkedList(const LinkedList<T>& copyList) : head(nullptr), tail(n
 	}
 }
 
+//overriding = operator for copying
+template <class T>
+LinkedList<T>& LinkedList<T>::operator=(LinkedList<T> rhs)
+{
+	if (&rhs != this) //remember, this is a ptr!
+	{
+		temp = head; //this->temp, this->head, lazy to put this because it's the same in this context
+		while (head->next != nullptr)
+		{
+			head = head->next;
+			delete temp;
+			temp = head;
+		}
+
+		for (Node* node = rhs.head; node != nullptr; node = node->next)
+		{
+			this->append(node->data);
+		}
+	}
+	return *this;
+}
+
+//destructor
 template <class T>
 LinkedList<T>::~LinkedList()
 {

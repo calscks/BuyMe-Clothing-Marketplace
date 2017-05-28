@@ -36,6 +36,9 @@
     <ClInclude Include="Clothes.h">
       <Filter>Source Files\Node</Filter>
     </ClInclude>
+    <ClInclude Include="Order.h">
+      <Filter>Source Files\Node</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -49,9 +52,6 @@
     </ClCompile>
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Clothes.cpp">
-      <Filter>Source Files\Node</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

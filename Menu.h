@@ -8,13 +8,13 @@ class Menu
 {
 public:
 	Menu(){};
-	virtual ~Menu(){};
-	virtual Menu *getNextMenu(int& choice){return nullptr;};
+	virtual ~Menu(){}
+	virtual Menu *getNextMenu(int& choice){return nullptr;}
 	virtual void printSelectionText()
 	{
 		std::cout << selectionText.str();
-	};
-	virtual void switches(int& choice){};
+	}
+	virtual void switches(int& choice){}
 protected:
 	std::stringstream selectionText;
 };

@@ -9,6 +9,7 @@ class LinkedList
 public:
 	LinkedList();
 	LinkedList(const LinkedList<T>&); //copy constructor
+	LinkedList& operator=(LinkedList);
 	~LinkedList(); //user-defined destr to free dynamically allocated memories
 	typedef std::function<void(LinkedList<T>)> callback; //should be taking void as return type, takes LL as arg (hopefully)
 	void appendFront(T data);
@@ -22,7 +23,7 @@ private:
 	{
 	public:
 		T data;
-		Node() : next(nullptr), prev(nullptr) {};
+		Node() : next(nullptr), prev(nullptr) {}
 		Node *next, *prev;
 	};
 	Node *head, *tail, *temp, *cur;
