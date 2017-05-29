@@ -1,5 +1,6 @@
 ﻿#pragma once
-
+#ifndef CLOTHES_H
+#define CLOTHES_H
 class Clothes
 {
 	int clothId = 0, quantity = 0;
@@ -76,3 +77,4 @@ public:
 		this->price = price;
 	}
 };
+#endif

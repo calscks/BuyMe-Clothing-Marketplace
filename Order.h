@@ -1,4 +1,6 @@
 #pragma once
+#ifndef ORDER_H
+#define ORDER_H
 #include "LinkedList.h"
 #include "Clothes.h"
 
@@ -72,3 +74,4 @@ public:
 		  delivery(delivery)
 	{}
 };
+#endif

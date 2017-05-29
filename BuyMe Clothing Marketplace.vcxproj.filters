@@ -39,6 +39,9 @@
     <ClInclude Include="Order.h">
       <Filter>Source Files\Node</Filter>
     </ClInclude>
+    <ClInclude Include="Controls.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

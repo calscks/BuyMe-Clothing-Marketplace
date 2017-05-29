@@ -10,7 +10,6 @@ void main()
 	{
 		currentMenu->printSelectionText();
 		auto choice = 0;
-		//system("pause >nul");
 		std::cin >> choice;
 		Menu* p_menu = currentMenu->getNextMenu(choice);
 		if (p_menu != nullptr)

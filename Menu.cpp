@@ -3,8 +3,8 @@
 #include "LinkedList.h"
 #include "Clothes.h"
 #include "Order.h"
+#include "Controls.h"
 
-//i dunno what im doing but it works! oop ftw
 std::string outOfBounds = "Selection out of bounds!";
 
 MainMenu::MainMenu()
@@ -42,7 +42,7 @@ OrderPlacementMenu::OrderPlacementMenu()
 	selectionText << "Order Placement Menu\n\n" <<
 		"1. View Clothes\n" <<
 		"2. Search Clothes\n" <<
-		"3. Select Clothes to Order\n" <<
+		"3. Select Clothes from ID to Order\n" <<
 		"4. Order Cart\n" <<
 		"5. Checkout\n" <<
 		"6. Back\n";
@@ -75,7 +75,9 @@ void OrderPlacementMenu::switches(int& choice)
 	switch (choice)
 	{
 	case 3:
-		//TODO: select clothes and add to cart
+		auto id = 0;
+		validInt(id);
+		selectClothesFromId(id);
 	case 4:
 		//TODO: cart linkedlist
 	case 5:
