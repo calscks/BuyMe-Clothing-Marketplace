@@ -39,6 +39,8 @@ void Menu::go() const
 		if (choice > 0 && choice <= this->items.size())
 			break;
 		std::cout << "Invalid choice." << std::endl;
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		system("pause");
 	}
 	items.at(choice - 1).item_callback(&items.at(choice - 1)); //perform that particular "callback", or in this case activity

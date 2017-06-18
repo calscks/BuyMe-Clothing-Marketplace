@@ -51,10 +51,10 @@ void(*scene)() = nullptr; //function pointer of scene,why? because this is so dy
 int main()
 {
 	SetConsoleTitle(_T("BuyMe Clothing Marketplace"));
-	clothesList->append(Clothes(100, 5, "Shirt", "Round-necked, short-sleeved, blue", "M", 25.99));
-	clothesList->append(Clothes(101, 5, "Jeans", "Skinny-fit", "32", 65.99));
-	clothesList->append(Clothes(102, 5, "Skirt", "Short, pleated, pink", "28", 35.99));
-	clothesList->append(Clothes(103, 5, "Skirt", "Short, denim, navy-blue", "30", 55.99));
+	clothesList->append(Clothes(100, 10, "Shirt", "Round-necked, short-sleeved, blue", "M", 25.99));
+	clothesList->append(Clothes(101, 10, "Jeans", "Skinny-fit", "32", 65.99));
+	clothesList->append(Clothes(102, 8, "Skirt", "Short, pleated, pink", "28", 35.99));
+	clothesList->append(Clothes(103, 7, "Skirt", "Short, denim, navy-blue", "30", 55.99));
 	clothesList->append(Clothes(104, 5, "Slacks", "Slim-fit, navy-blue", "36", 85.99));
 	menu_setup();
 	scene = &scene_mainMenu;
@@ -150,7 +150,7 @@ void scene_viewClothes()
 	{
 		list->sort([](double x, double y)
 		{
-			return y - x; //y - x -> cheapest first, x - y -> expensive first
+			return x - y; //x - y -> cheapest first, y - x -> expensive first
 		});
 	});
 	system("pause");
@@ -264,9 +264,9 @@ void mover(Node<T>* head_node)
 		system("cls");
 		cout << head_node->data << endl;
 		if (head_node->prev != nullptr)
-			cout << "1. Previous\t";
+			cout << "1. Previous \t";
 		if (head_node->next != nullptr)
-			cout << "2. Next  \t";
+			cout << "2. Next \t";
 		cout << "3. Back" << endl;
 		validInt(choice);
 
@@ -301,10 +301,10 @@ void mover (Node<Clothes>* head_node)
 		system("cls");
 		cout << head_node->data << endl;
 		if (head_node->prev != nullptr)
-			cout << "1. Previous\t";
+			cout << "1. Previous \t";
 		if (head_node->next != nullptr)
-			cout << "2. Next  \t";
-		cout << "3. Add this to cart  \t" << "4. Back" << endl;
+			cout << "2. Next \t";
+		cout << "3. Add this to cart \t" << "4. Back" << endl;
 		validInt(choice);
 
 		if (choice == 1)
@@ -464,6 +464,7 @@ void scene_delOrder()
 	cout << "Enter order ID: ";
 	validInt(id);
 	delOrder(order->getFirst(), id);
+	system("pause");
 	scene = &scene_orderModMenu;
 }
 
@@ -479,14 +480,15 @@ void delOrder(Node<Order>* head_node, int searcher)
 			if (head_node->data.order_id() == searcher)
 			{
 				cout << head_node->data << endl;
-				cout << "Delete? ";
-				if (confirm())
-				{
-					order->destroy(count);
-					cout << "Deleted successful!" << endl;
-				}
+				break;
 			}
-			count++;
+			++count;
+		}
+		cout << "Delete? ";
+		if (confirm())
+		{
+			order->destroy(count);
+			cout << "Deleted successful!" << endl;
 		}
 	}
 }
