@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Node">
       <UniqueIdentifier>{dd2a0fea-e95b-4012-8f51-dc512899492e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{e96ba1c5-2aad-442c-8018-58933e9b2438}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -30,17 +33,17 @@
     <ClInclude Include="LinkedList.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Clothes.h">
       <Filter>Source Files\Node</Filter>
     </ClInclude>
     <ClInclude Include="Order.h">
       <Filter>Source Files\Node</Filter>
     </ClInclude>
-    <ClInclude Include="Controls.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Menu.h">
+      <Filter>Source Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Source Files\Node</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -50,11 +53,8 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LinkedList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Menu.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

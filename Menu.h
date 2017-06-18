@@ -1,69 +1,38 @@
 ﻿#pragma once
+
 #ifndef MENU_H
 #define MENU_H
 
-//polymorphismic classes, treating each menu as object
-//Base class Menu, derived classes MainMenu...etc
+#include <vector>
+#include <functional>
+
+#define string std::string
+#define vector std::vector
+
+//Using vector to store all the Menus
 class Menu
 {
 public:
-	Menu(){};
-	virtual ~Menu(){}
-	virtual Menu *getNextMenu(int& choice){return nullptr;}
-	virtual void printSelectionText()
+	class Item;
+	typedef std::function<void(Item const*)> callback; //using lambda expression to perform callback mechanism
+	class Item
 	{
-		std::cout << selectionText.str();
-	}
-	virtual void switches(int& choice){}
-protected:
-	std::stringstream selectionText;
+		friend class Menu;
+	public:
+		Item(string title, callback callback);
+	private:
+		string title;
+		callback item_callback;
+	};
+	Menu(string title);
+	void addItem(Item item);
+	void go() const;
+private:
+	vector<Item> items;
+	string title;
 };
 
-class MainMenu : public Menu
-{
-public:
-	MainMenu();
-	Menu *getNextMenu(int& choice) override;
-};
+#undef string
+#undef vector
 
-class OrderPlacementMenu : public Menu
-{
-public:
-	OrderPlacementMenu();
-	void switches(int& choice) override;
-	Menu *getNextMenu(int& choice) override;
-};
-
-class OrderModMenu : public Menu
-{
-public:
-	OrderModMenu();
-	Menu *getNextMenu(int& choice) override;
-	void switches(int& choice) override;
-};
-
-class ViewClothesMenu : public Menu
-{
-public:
-	ViewClothesMenu();
-	Menu *getNextMenu(int& choice) override;
-	void switches(int& choice) override;
-
-};
-
-class SearchClothesMenu : public Menu
-{
-public:
-	SearchClothesMenu();
-	Menu *getNextMenu(int& choice) override;
-	void switches(int& choice) override;
-};
-
-class ViewOrderMenu : public Menu
-{
-public:
-	ViewOrderMenu();
-	Menu *getNextMenu(int& choice) override;
-	void switches(int& choice) override;
-};
 #endif
