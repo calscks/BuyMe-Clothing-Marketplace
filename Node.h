@@ -1,5 +1,4 @@
 #pragma once
-#include "Clothes.h"
 template <class T>
 class Node
 {

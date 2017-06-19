@@ -9,17 +9,15 @@
 template <class T>
 class LinkedList
 {
-	typedef std::function<void(LinkedList<T>*)> callback; //should be taking void as return type, takes LL as arg (hopefully)
-	typedef std::function<double(double, double)> comparator; //heck
+	typedef std::function<void(LinkedList<T>*)> callback; //taking void as return type, takes LL as arg
+	typedef std::function<double(double, double)> comparator; //comparator! return double value based on those 2 double arguments
 
 public:
 	LinkedList();
 	LinkedList(const LinkedList<T>& copyList);
 	LinkedList& operator=(LinkedList<T> rhs);
 	~LinkedList();
-	void appendFront(T data);
 	void append(T data);
-	void appendPosition(T data, int& position);
 	void traversePrint(callback callback) const;
 	void sort(comparator comparator);
 	int getSize() const;
@@ -82,21 +80,6 @@ LinkedList<T>::~LinkedList()
 }
 
 template <class T>
-void LinkedList<T>::appendFront(T data)
-{
-	cur = new Node<T>(data);
-	if (head == nullptr)
-		head = cur; //can be shortened but I lazy
-	else if (head != nullptr)
-	{
-		head->prev = cur;
-		cur->next = head;
-		head = cur;
-	}
-	tail = cur;
-}
-
-template <class T>
 void LinkedList<T>::append(T data)
 {
 	cur = new Node<T>(data);
@@ -108,48 +91,6 @@ void LinkedList<T>::append(T data)
 		cur->prev = tail;
 	}
 	tail = cur;
-}
-
-template <class T>
-void LinkedList<T>::appendPosition(T data, int& position)
-{
-	auto count = 1;
-	cur = new Node<T>(data);
-
-	if (head == nullptr)
-	{
-		append(data);
-		std::cout << "The list is empty. Creating a new list with this data." << std::endl;
-		return;
-	}
-
-	temp = new Node<T>;
-
-	if (position > count || position < 1)
-	{
-		std::cout << "Position out of bound." << std::endl;
-	}
-	else if (position == 1)
-	{
-		appendFront(data);
-	}
-	else if (position < this->getSize())
-	{
-		temp = head;
-		while (temp->next != nullptr && count != position)
-		{
-			temp = temp->next;
-			count++;
-		}
-		cur->next = temp;
-		cur->prev = temp->prev;
-		temp->prev->next = cur;
-		temp->prev = cur;
-	}
-	else
-	{
-		append(data);
-	}
 }
 
 template <class T>
@@ -223,6 +164,8 @@ void LinkedList<T>::destroy(int pos)
 		tail = cur->prev;
 	delete cur;
 }
+
+
 
 #endif
 

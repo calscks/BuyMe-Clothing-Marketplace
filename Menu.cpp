@@ -43,7 +43,7 @@ void Menu::go() const
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		system("pause");
 	}
-	items.at(choice - 1).item_callback(&items.at(choice - 1)); //perform that particular "callback", or in this case activity
+	items.at(choice - 1).item_callback(&items.at(choice - 1)); //assign that particular "callback", or in this case activity, at the selected choice
 }
 
 #undef string

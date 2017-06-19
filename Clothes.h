@@ -24,11 +24,6 @@ public:
 		return clothId;
 	}
 
-	void set_clothId(int cloth_id)
-	{
-		clothId = cloth_id;
-	}
-
 	int get_quantity() const
 	{
 		return quantity;
@@ -44,29 +39,14 @@ public:
 		return clothType;
 	}
 
-	void set_cloth_type(const std::string& cloth_type)
-	{
-		clothType = cloth_type;
-	}
-
 	std::string get_desc() const
 	{
 		return desc;
 	}
 
-	void set_desc(const std::string& desc)
-	{
-		this->desc = desc;
-	}
-
 	std::string get_size() const
 	{
 		return size;
-	}
-
-	void set_size(const std::string& size)
-	{
-		this->size = size;
 	}
 
 	double get_price() const

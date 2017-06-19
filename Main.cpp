@@ -46,7 +46,7 @@ void delOrder(Node<Order>* head_node, int searcher);
 void validInt(int& in);
 int noGenerator(Node<Order>* tail_node);
 
-void(*scene)() = nullptr; //function pointer of scene,why? because this is so dynamic it always changes whenever i move back and forth
+void(*scene)() = nullptr; //function pointer of scene, why? because this is so dynamic it always changes whenever i move back and forth of the menus
 
 int main()
 {
@@ -240,7 +240,7 @@ void scene_checkout()
 	cout << endl << "Amount received: " << amt << endl;
 	cout << "Balance return: " << bal << endl;
 	auto delivery = Delivery(name, addr, cont);
-	order->append(Order(noGenerator(order->getLast()), new const LinkedList<Clothes>(*cart), total_cost, amt, bal, delivery));
+	order->append(Order(noGenerator(order->getLast()), new LinkedList<Clothes>(*cart), total_cost, amt, bal, delivery));
 	delete cart; //woohoo
 	cart = new LinkedList<Clothes>();
 
@@ -480,6 +480,10 @@ void delOrder(Node<Order>* head_node, int searcher)
 			if (head_node->data.order_id() == searcher)
 			{
 				cout << head_node->data << endl;
+				for (auto item = head_node->data.get_items()->getFirst(); item; item = item->next)
+				{
+					cout << item->data << endl;
+				}
 				break;
 			}
 			++count;

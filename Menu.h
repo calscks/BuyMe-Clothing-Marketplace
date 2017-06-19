@@ -7,14 +7,14 @@
 #include <functional>
 
 #define string std::string
-#define vector std::vector
+#define vector std::vector //using vector in the menu to push added items to back in the main
 
-//Using vector to store all the Menus
+//all main menus shall use this
 class Menu
 {
 public:
 	class Item;
-	typedef std::function<void(Item const*)> callback; //using lambda expression to perform callback mechanism
+	typedef std::function<void(Item const*)> callback; //callback again :)
 	class Item
 	{
 		friend class Menu;
